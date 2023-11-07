@@ -31,3 +31,18 @@ mysql에서 1분에 100개의 insert만 가능하다고 가정해보면,
 이러한 경우, 주문 요청과 회원가입 요청은 100분 이후에 가능하게 되며 일반적으로 타임아웃이 발생하게 된다.  
 짧은 시간에 많은 요청이 들어오게되면 db 리소스를 많이 사용하게 되며, 서비스 지연 및 오류발생의 원인이 된다.  
 <img width="1141" alt="쿠폰" src="https://github.com/hong9Lee/coupon-issuance/assets/94272140/92710e52-004e-4973-8e7b-c88acc925849">
+
+#### `kafka`  
+분산 이벤트 스트리밍 플랫폼  
+이벤트 스트리밍이란 소스에서 목적지까지 이벤트를 실시간으로 스트리밍 하는 것  
+
+<img width="759" alt="스크린샷 2023-11-07 오후 8 51 47" src="https://github.com/hong9Lee/coupon-issuance/assets/94272140/4a7e3293-9421-451a-9291-6fb55aaeff24">
+
+`topic 발행`  
+docker exec -t kafka kafka-console-producer.sh --topic testTopic --broker-list 0.0.0.0:9092  
+
+`topic producer`  
+docker exec -it kafka kafka-console-producer.sh --topic testTopic --broker-list 0.0.0.0:9092  
+
+`topic consumer`  
+docker exec -it kafka kafka-console-consumer.sh --topic testTopic --bootstrap-server localhost:9092
