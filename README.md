@@ -46,3 +46,25 @@ docker exec -it kafka kafka-console-producer.sh --topic testTopic --broker-list 
 
 `topic consumer`  
 docker exec -it kafka kafka-console-consumer.sh --topic testTopic --bootstrap-server localhost:9092
+
+
+#### `한명당 하나의 쿠폰 발급` 
+1. 유니크 키를 부여해준다.  
+사용자는 해당 쿠폰 이외에 다른 쿠폰도 가지고 있을 수 있으므로 실용적인 방법이 아니다.
+
+2. 범위 락을 잡는다.  
+락의 범위가 크기 때문에 기다리는 동안 성능이 좋지 않을 수 있으며, 아래 이미지와 같이 발급이 끝나지 않은 상태에서 또 요청을 보낸다면 중복 발급 될 수 있다.
+<img width="1187" alt="스크린샷 2023-11-15 오후 8 54 40" src="https://github.com/hong9Lee/coupon-issuance/assets/94272140/4a90b9c0-d106-444f-a5ed-9588731f224f">
+
+3.  Set  
+Set 자료구조를 사용하여 1인당 1개의 쿠폰만 발급 가능하도록 할 수 있다.  
+
+
+
+
+
+
+
+
+
+
