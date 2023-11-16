@@ -60,7 +60,8 @@ docker exec -it kafka kafka-console-consumer.sh --topic testTopic --bootstrap-se
 Set 자료구조를 사용하여 1인당 1개의 쿠폰만 발급 가능하도록 할 수 있다.  
 
 
-
+#### `에러 처리`  
+<img width="1184" alt="스크린샷 2023-11-16 오후 8 40 09" src="https://github.com/hong9Lee/coupon-issuance/assets/94272140/198a235d-bbe4-4f7f-9a73-7031e35c1bee">
 
 
 
